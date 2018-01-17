@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'font-awesome/css/font-awesome.min.css';
 import './index.css';
 
 function Square(props) {
@@ -23,20 +24,23 @@ class Board extends React.Component {
 	render() {
 		return (
 			<div>
-				<div className="board-row">
-					{this.renderSquare(0)}
-					{this.renderSquare(1)}
-					{this.renderSquare(2)}
-				</div>
-				<div className="board-row">
-					{this.renderSquare(3)}
-					{this.renderSquare(4)}
-					{this.renderSquare(5)}
-				</div>
-				<div className="board-row">
-					{this.renderSquare(6)}
-					{this.renderSquare(7)}
-					{this.renderSquare(8)}
+				<h1>React Tic Tac Toe</h1>
+				<div className="board-wrapper">
+					<div className="board-row">
+						{this.renderSquare(0)}
+						{this.renderSquare(1)}
+						{this.renderSquare(2)}
+					</div>
+					<div className="board-row">
+						{this.renderSquare(3)}
+						{this.renderSquare(4)}
+						{this.renderSquare(5)}
+					</div>
+					<div className="board-row">
+						{this.renderSquare(6)}
+						{this.renderSquare(7)}
+						{this.renderSquare(8)}
+					</div>
 				</div>
 			</div>
 		);
@@ -59,6 +63,7 @@ class Game extends React.Component {
 		const history = this.state.history.slice(0, this.state.stepNumber + 1);
 		const current = history[history.length - 1];
 		const squares = current.squares.slice();
+
 		if (calculateWinner(squares) || squares[i]) {
 			return;
 		}
@@ -97,7 +102,7 @@ class Game extends React.Component {
 
 		let status;
 		if(winner) {
-			status = 'Winner: ' + winner;
+			status = alert('Winner: ' + winner);
 		} else {
 			status = 'Next Player: ' + (this.state.xIsNext ? 'X' : 'O');
 		}

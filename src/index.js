@@ -63,8 +63,8 @@ class Game extends React.Component {
 		const history = this.state.history.slice(0, this.state.stepNumber + 1);
 		const current = history[history.length - 1];
 		const squares = current.squares.slice();
-		const x = <i className="fa fa-times"></i>
-		const o = <i className="fa fa-circle-o"></i>
+		// const x = <i className="fa fa-times"></i>
+		// const o = <i className="fa fa-circle-o"></i>
 
 		if (calculateWinner(squares) || squares[i]) {
 			return;
